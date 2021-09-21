@@ -47,7 +47,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        Money.setText("0");
+        Money.setText("1");
         Money.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 MoneyKeyTyped(evt);
@@ -56,7 +56,7 @@ public class main extends javax.swing.JFrame {
 
         Result.setEditable(false);
 
-        Equivalence.setText("1,17");
+        Equivalence.setText("1.17");
         Equivalence.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 EquivalenceKeyTyped(evt);
@@ -166,14 +166,14 @@ public class main extends javax.swing.JFrame {
 
     private void MoneyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MoneyKeyTyped
         char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
+        if(!(Character.isDigit(enter) || !Character.isLetter(enter))){
             evt.consume();
         }
     }//GEN-LAST:event_MoneyKeyTyped
 
     private void EquivalenceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EquivalenceKeyTyped
         char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter))){
+        if(!(Character.isDigit(enter) || !Character.isLetter(enter))){
             evt.consume();
         }
     }//GEN-LAST:event_EquivalenceKeyTyped
