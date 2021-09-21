@@ -5,6 +5,8 @@
  */
 package ui;
 
+import java.lang.Math;
+
 /**
  *
  * @author izyde
@@ -27,7 +29,7 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ChangeMoney = new javax.swing.JButton();
+        Currencies = new javax.swing.ButtonGroup();
         Money = new javax.swing.JTextField();
         Result = new javax.swing.JTextField();
         Equivalence = new javax.swing.JTextField();
@@ -37,20 +39,15 @@ public class main extends javax.swing.JFrame {
         Texto4 = new javax.swing.JLabel();
         Euro = new javax.swing.JRadioButton();
         Dollar = new javax.swing.JRadioButton();
+        EquivalenceErrorMessage = new javax.swing.JLabel();
+        MoneyErrorMessage = new javax.swing.JLabel();
+        ResetButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ChangeMoney.setText("Convertir");
-        ChangeMoney.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangeMoneyActionPerformed(evt);
-            }
-        });
-
-        Money.setText("1");
         Money.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                MoneyKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                MoneyKeyReleased(evt);
             }
         });
 
@@ -58,8 +55,8 @@ public class main extends javax.swing.JFrame {
 
         Equivalence.setText("1.17");
         Equivalence.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                EquivalenceKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                EquivalenceKeyReleased(evt);
             }
         });
 
@@ -71,6 +68,7 @@ public class main extends javax.swing.JFrame {
 
         Texto4.setText("$");
 
+        Currencies.add(Euro);
         Euro.setSelected(true);
         Euro.setText(" €");
         Euro.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +77,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        Currencies.add(Dollar);
         Dollar.setText("$");
         Dollar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,35 +85,53 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        EquivalenceErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+
+        MoneyErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+
+        ResetButton.setText("Reset");
+        ResetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ChangeMoney, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184))
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Equivalence)
-                    .addComponent(Texto3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(Money)
-                    .addComponent(Texto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(EquivalenceErrorMessage)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Euro)
-                            .addComponent(Dollar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Equivalence)
+                                .addComponent(Texto3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(Money)
+                                .addComponent(Texto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(MoneyErrorMessage))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Texto2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Texto4)
-                        .addGap(339, 339, 339))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Euro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Texto2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(34, 34, 34))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Dollar)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE)
+                                .addComponent(Texto4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ResetButton)
+                                .addGap(295, 295, 295))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,74 +141,108 @@ public class main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Equivalence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Texto4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                    .addComponent(Texto4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ResetButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EquivalenceErrorMessage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Texto1)
                     .addComponent(Texto2))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Money, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(Dollar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Money, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Euro))
                             .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Euro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Dollar)
-                        .addGap(18, 18, 18)))
-                .addComponent(ChangeMoney)
-                .addGap(51, 51, 51))
+                        .addComponent(MoneyErrorMessage)))
+                .addGap(92, 92, 92))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ChangeMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangeMoneyActionPerformed
-        if(Equivalence.getText().isEmpty()){
-            System.out.println("Error");
-        } else {
-            double amount = Double.parseDouble(Money.getText());
-            double equivalence = Double.parseDouble(Equivalence.getText());
-            if(Euro.isSelected()){
-                Result.setText(String.valueOf(amount * equivalence));
-            } else {
-                Result.setText(String.valueOf(amount / equivalence));
-            }
-            
-        }
-        
-    }//GEN-LAST:event_ChangeMoneyActionPerformed
-
-    private void MoneyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MoneyKeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter) || !Character.isLetter(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_MoneyKeyTyped
-
-    private void EquivalenceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EquivalenceKeyTyped
-        char enter = evt.getKeyChar();
-        if(!(Character.isDigit(enter) || !Character.isLetter(enter))){
-            evt.consume();
-        }
-    }//GEN-LAST:event_EquivalenceKeyTyped
-
     private void DollarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DollarActionPerformed
-        if(Euro.isSelected()){
-            Euro.setSelected(false);
-            Dollar.setSelected(true);
-        }
+        ChangeMoney();
     }//GEN-LAST:event_DollarActionPerformed
 
     private void EuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EuroActionPerformed
-        if(Dollar.isSelected()){
-            Euro.setSelected(true);
-            Dollar.setSelected(false);
-        }
+        ChangeMoney();
     }//GEN-LAST:event_EuroActionPerformed
 
+    private void MoneyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MoneyKeyReleased
+        Input(evt);
+    }//GEN-LAST:event_MoneyKeyReleased
+
+    private void EquivalenceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EquivalenceKeyReleased
+        Input(evt);
+    }//GEN-LAST:event_EquivalenceKeyReleased
+
+    double realEquivalence = 1.17;
+    
+    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
+        Equivalence.setText(String.valueOf(realEquivalence));
+        ChangeMoney();
+    }//GEN-LAST:event_ResetButtonActionPerformed
+
+    private void Input(java.awt.event.KeyEvent evt){
+        CheckInput(evt);
+        ChangeMoney();
+    }
+    
+    private boolean CheckInput(java.awt.event.KeyEvent evt){
+        char enter = evt.getKeyChar();
+        if(!(Character.isDigit(enter) || enter == '.')){
+            evt.consume();
+            return false;
+        }
+        return true;
+    }
+    
+    private void ChangeMoney() {
+        if(CheckEquivalence() && CheckMoney()){
+            double amount = Double.parseDouble(Money.getText());
+            double equivalence = Double.parseDouble(Equivalence.getText());
+            if(Euro.isSelected()){
+                double value = RoundToTwoDecimals(amount * equivalence);
+                Result.setText(String.valueOf(value));
+            } else {
+                double value = RoundToTwoDecimals(amount / equivalence);
+                Result.setText(String.valueOf(value));
+            }
+        }
+    }
+    
+    private double RoundToTwoDecimals(double value){
+        return Math.round(value * Math.pow(10, 2)) / Math.pow(10, 2);
+    }
+    
+    private boolean CheckEquivalence(){
+        if(!Equivalence.getText().isBlank()){
+            EquivalenceErrorMessage.setText("");
+            return true;
+        } else{
+            EquivalenceErrorMessage.setText("Introduce un número valido");
+            return false;
+        }
+    }
+    
+    private boolean CheckMoney(){
+        if(!Money.getText().isBlank()){
+            MoneyErrorMessage.setText("");
+            return true;
+        } else{
+            MoneyErrorMessage.setText("Introduce un número valido");
+            return false;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -229,11 +280,14 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ChangeMoney;
+    private javax.swing.ButtonGroup Currencies;
     private javax.swing.JRadioButton Dollar;
     private javax.swing.JTextField Equivalence;
+    private javax.swing.JLabel EquivalenceErrorMessage;
     private javax.swing.JRadioButton Euro;
     private javax.swing.JTextField Money;
+    private javax.swing.JLabel MoneyErrorMessage;
+    private javax.swing.JButton ResetButton;
     private javax.swing.JTextField Result;
     private javax.swing.JLabel Texto1;
     private javax.swing.JLabel Texto2;
