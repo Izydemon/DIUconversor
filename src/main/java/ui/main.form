@@ -29,17 +29,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="EquivalenceErrorMessage" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Equivalence" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Texto3" alignment="0" pref="140" max="32767" attributes="0"/>
+                  <Component id="Money" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Texto1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="MoneyErrorMessage" alignment="0" max="32767" attributes="0"/>
+              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <Component id="Texto4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ResetButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Equivalence" max="32767" attributes="0"/>
-                              <Component id="Texto3" pref="140" max="32767" attributes="0"/>
-                              <Component id="Money" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Texto1" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="MoneyErrorMessage" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -55,25 +61,14 @@
                               <Component id="Dollar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="4" max="32767" attributes="0"/>
-                              <Component id="Texto4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ResetButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="EquivalenceErrorMessage" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="62" max="32767" attributes="0"/>
-                  </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="Info" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,15 +83,15 @@
                   <Component id="Texto4" alignment="3" max="32767" attributes="0"/>
                   <Component id="ResetButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="EquivalenceErrorMessage" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="102" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="Dollar" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="EquivalenceErrorMessage" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Texto1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Texto2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -111,11 +106,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="MoneyErrorMessage" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Component id="Info" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,6 +120,7 @@
     <Component class="javax.swing.JTextField" name="Money">
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MoneyKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MoneyKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="Result">
@@ -137,6 +134,7 @@
       </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="EquivalenceKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="EquivalenceKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Texto1">
@@ -204,7 +202,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="Info">
       <Properties>
         <Property name="text" type="java.lang.String" value="Desarrollado por: Noah Hern&#xe1;ndez Morales e Isidro Berm&#xfa;dez Fern&#xe1;ndez"/>
       </Properties>

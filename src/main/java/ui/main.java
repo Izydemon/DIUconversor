@@ -42,13 +42,16 @@ public class main extends javax.swing.JFrame {
         EquivalenceErrorMessage = new javax.swing.JLabel();
         MoneyErrorMessage = new javax.swing.JLabel();
         ResetButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Info = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Money.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 MoneyKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MoneyKeyTyped(evt);
             }
         });
 
@@ -58,6 +61,9 @@ public class main extends javax.swing.JFrame {
         Equivalence.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 EquivalenceKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                EquivalenceKeyTyped(evt);
             }
         });
 
@@ -97,7 +103,7 @@ public class main extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Desarrollado por: Noah Hernández Morales e Isidro Bermúdez Fernández");
+        Info.setText("Desarrollado por: Noah Hernández Morales e Isidro Bermúdez Fernández");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,15 +111,21 @@ public class main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(EquivalenceErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Equivalence, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Texto3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(Money, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Texto1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(MoneyErrorMessage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(Texto4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ResetButton)
+                        .addGap(295, 295, 295))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Equivalence)
-                                .addComponent(Texto3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                .addComponent(Money)
-                                .addComponent(Texto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(MoneyErrorMessage))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -125,20 +137,11 @@ public class main extends javax.swing.JFrame {
                                 .addGap(34, 34, 34))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Dollar)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 4, Short.MAX_VALUE)
-                                .addComponent(Texto4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ResetButton)
-                                .addGap(295, 295, 295))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(EquivalenceErrorMessage))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel1)
-                        .addContainerGap(62, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Info)
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,14 +153,14 @@ public class main extends javax.swing.JFrame {
                     .addComponent(Equivalence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Texto4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ResetButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EquivalenceErrorMessage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Dollar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addComponent(EquivalenceErrorMessage)
+                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Texto1)
                             .addComponent(Texto2))
@@ -168,10 +171,11 @@ public class main extends javax.swing.JFrame {
                                 .addComponent(Euro))
                             .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MoneyErrorMessage)))
-                .addGap(70, 70, 70)
-                .addComponent(jLabel1)
-                .addContainerGap())
+                        .addComponent(MoneyErrorMessage)
+                        .addGap(0, 7, Short.MAX_VALUE)))
+                .addGap(55, 55, 55)
+                .addComponent(Info)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -199,6 +203,14 @@ public class main extends javax.swing.JFrame {
         Equivalence.setText(String.valueOf(realEquivalence));
         ChangeMoney();
     }//GEN-LAST:event_ResetButtonActionPerformed
+
+    private void EquivalenceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EquivalenceKeyTyped
+        Input(evt);
+    }//GEN-LAST:event_EquivalenceKeyTyped
+
+    private void MoneyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MoneyKeyTyped
+        Input(evt);
+    }//GEN-LAST:event_MoneyKeyTyped
 
     private void Input(java.awt.event.KeyEvent evt){
         CheckInput(evt);
@@ -294,6 +306,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField Equivalence;
     private javax.swing.JLabel EquivalenceErrorMessage;
     private javax.swing.JRadioButton Euro;
+    private javax.swing.JLabel Info;
     private javax.swing.JTextField Money;
     private javax.swing.JLabel MoneyErrorMessage;
     private javax.swing.JButton ResetButton;
@@ -302,7 +315,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel Texto2;
     private javax.swing.JLabel Texto3;
     private javax.swing.JLabel Texto4;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
 
