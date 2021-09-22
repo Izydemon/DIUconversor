@@ -42,6 +42,7 @@ public class main extends javax.swing.JFrame {
         EquivalenceErrorMessage = new javax.swing.JLabel();
         MoneyErrorMessage = new javax.swing.JLabel();
         ResetButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +97,8 @@ public class main extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Desarrollado por: Noah Hernández Morales e Isidro Bermúdez Fernández");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,9 +106,6 @@ public class main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(EquivalenceErrorMessage)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -131,7 +131,14 @@ public class main extends javax.swing.JFrame {
                                 .addComponent(Texto4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ResetButton)
-                                .addGap(295, 295, 295))))))
+                                .addGap(295, 295, 295))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(EquivalenceErrorMessage))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel1)
+                        .addContainerGap(62, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +169,9 @@ public class main extends javax.swing.JFrame {
                             .addComponent(Result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(MoneyErrorMessage)))
-                .addGap(92, 92, 92))
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pack();
@@ -293,6 +302,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel Texto2;
     private javax.swing.JLabel Texto3;
     private javax.swing.JLabel Texto4;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
 
